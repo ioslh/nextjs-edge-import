@@ -1,0 +1,20 @@
+diff --git a/index.dom.js b/index.dom.js
+index 5d0abe28bc8341a32470810212417a7546a3dac4..6b06602380bd5a20659d14de5e68f73f9b3f62e2 100644
+--- a/index.dom.js
++++ b/index.dom.js
+@@ -2,13 +2,14 @@
+ 
+ /* eslint-env browser */
+ 
+-const element = document.createElement('i')
++let element
+ 
+ /**
+  * @param {string} value
+  * @returns {string|false}
+  */
+ export function decodeNamedCharacterReference(value) {
++  element = element || document.createElement('i')
+   const characterReference = '&' + value + ';'
+   element.innerHTML = characterReference
+   const char = element.textContent
